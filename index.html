@@ -35,9 +35,11 @@
         id: 'map',
         fillColor: '#ffffff',
         strokeColor: '#6FC0A9',
-        strokeWidth: 1,
+        strokeWidth: 0.5,
         selectedColor: '#D6EBE3',
         animationDuration: 200,
+        height: '100%',
+        width: '100%',
         onClick: function (province, event) {
           $('path').removeClass('fill-province');
           $(event.target).addClass('fill-province');
@@ -73,10 +75,16 @@
         </div>`);
 
           // show financial help with name, typology (color), status(color)
-          const clickedProvince = provincesData[province.name.replace(' ', '_')];
+          const clickedProvince =
+            provincesData[province.name.replace(' ', '_')];
 
           clickedProvince.forEach((help, index) => {
-            const helpId = province.name.replace(/ /g, '') + '-' + index + '-' + help.name.replace(/ /g, '');
+            const helpId =
+              province.name.replace(/ /g, '') +
+              '-' +
+              index +
+              '-' +
+              help.name.replace(/ /g, '');
 
             /* $('#province').append(
               `<div class="title">${
@@ -84,19 +92,25 @@
               }</div>`
             ); */
 
-            $('#province').append(`<div class="help-wrapper" id="${helpId}"></div>`);
+            $('#province').append(
+              `<div class="help-wrapper" id="${helpId}"></div>`
+            );
 
-            $(`.name-heading-wrapper`).append(`<div class="name">${help.name}</div>`);
+            $(`.name-heading-wrapper`).append(
+              `<div class="name">${help.name}</div>`
+            );
 
             $(`.typology-heading-wrapper`).append(
               `<div class="typology" style="background-color: ${help.typology};"></div>`
             );
 
-            $(`.status-heading-wrapper`).append(`<div class="status" style="background-color: ${help.status};"></div>`);
+            $(`.status-heading-wrapper`).append(
+              `<div class="status" style="background-color: ${help.status};"></div>`
+            );
           });
           $('div#province').text();
           $('div#province').css('display', 'flex');
-        }
+        },
         //onMouseOver: function(province, event) {
         //  console.log('Navigating through ' + province.name);
         //},
