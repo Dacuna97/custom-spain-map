@@ -11,6 +11,8 @@
     <script type="text/javascript" src="lib/raphael-min.js"></script>
     <script type="text/javascript" src="lib/spain-map.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://spreadsheets.google.com/feeds/cells/1kcxR2l1g_IiqB3bDXfw-GxmLC3OrcVe3EH4ZkujreFw/1/public/values?alt=json-in-script&callback=readData"></script>
+
     <script src="provincesInfo.js"></script>
   </head>
   <body>
@@ -31,6 +33,12 @@
       </div>
     </div>
     <script type="text/javascript">
+      var jsonData = null;
+      function readData(json) {
+        jsonData = json.feed.entry;
+        console.log('jsonData', jsonData);
+      }
+      // ####################
       new SpainMap({
         id: 'map',
         fillColor: '#ffffff',
