@@ -16,99 +16,31 @@ a {
 }
 
 svg {
-  stroke: #6fc0a9;
+  stroke: #ffffff;
   height: 100%;
   margin-top: 50px;
   margin-left: auto;
+  margin-right: auto;
 }
 
 svg path {
-  fill: #ffffff;
+  fill: #13294b;
   cursor: pointer;
   outline: none;
 }
 
 svg path:hover {
-  fill: #d6ebe3;
+  fill: #339999;
 }
 
 svg path:focus {
-  fill: #d6ebe3;
+  fill: #339999;
 }
 
 svg path[aria-checked='true'] {
-  fill: #6fc0a9;
+  fill: #47d7ac;
 }
 
 svg path[aria-current='true'] {
-  fill: #6fc0a9;
-}
-
-.province-info-wrapper {
-  z-index: 100;
-  padding: 16px;
-  border: 2px solid #6fc0a9;
-  border-radius: 10px;
-  margin-left: 100px;
-}
-.province-info {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  margin-bottom: 15px;
-}
-.heading-wrapper {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-.heading {
-  font-weight: 700;
-  font-size: 12px;
-  color: #373737;
-  margin-bottom: 15px;
-}
-
-.name-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 250px !important;
-}
-
-.typology-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 15px;
-}
-.status-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.help-wrapper {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-.name {
-  font-size: 12px;
-  height: 12px;
-  color: #373737;
-  font-weight: 400;
-  margin-bottom: 10px;
-}
-.typology {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  margin-left: 15px;
-}
-.status {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-bottom: 10px;
+  fill: #47d7ac;
 }
