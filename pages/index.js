@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import { google } from 'googleapis';
 import keys from '../keys.json';
@@ -6,36 +6,47 @@ import spainProvinces from '../public/spain-provinces';
 
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
-  const style = { margin: '1rem auto', width: '300px' };
-
+export default function Home({ values }) {
   const [selected, setSelected] = useState('');
+  const [selectedId, setSelectedId] = useState(null);
 
   const onClick = ({ target }) => {
     const id = target.attributes.id.value;
     const name = target.attributes.name.value;
 
-    // If selected includes the id already, remove it - otherwise add it
     setSelected(name);
+    setSelectedId(id);
   };
 
+  const headings = values && values.length > 0 ? values[0] : [];
+  const helps = values && values.length > 1 ? values.filter((value) => value[3] === selected) : [];
   return (
     <div className={styles.container}>
-      <VectorMap {...spainProvinces} layerProps={{ onClick }} />
-      <hr />
-      <div className='province-info'>
-        <div className='heading-wrapper'>
-          <div className='name-heading-wrapper'>
-            <div className='heading name-heading'>Nombre</div>
-          </div>
-          <div className='typology-heading-wrapper'>
-            <div className='heading typology-heading'>Tipología</div>
-          </div>
-          <div className='status-heading-wrapper'>
-            <div className='heading status-heading'>Status</div>
+      {headings && headings.length > 0 && helps && helps.length > 0 && (
+        <div className='province-info-wrapper'>
+          <div className='province-info'>
+            <div className='name-wrapper'>
+              <div className='heading name-heading'>{headings[0]}</div>
+              {helps.map((help) => (
+                <div className='name'>{help[0]}</div>
+              ))}
+            </div>
+            <div className='typology-wrapper'>
+              <div className='heading typology-heading'>{headings[1]}</div>
+              {helps.map((help) => (
+                <div className='typology' style={{ backgroundColor: help[1] }}></div>
+              ))}
+            </div>
+            <div className='status-wrapper'>
+              <div className='heading status-heading'>{headings[2]}</div>
+              {helps.map((help) => (
+                <div className='status' style={{ backgroundColor: help[2] }}></div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
+      <VectorMap {...spainProvinces} layerProps={{ onClick }} checkedLayers={[selectedId]} />
     </div>
   );
 }
@@ -69,9 +80,11 @@ export async function getServerSideProps(ctx) {
 
     const tokens = await client.authorize();
     console.log('Connected');
-    gsrun(client);
+    const values = await gsrun(client);
     return {
-      props: {}
+      props: {
+        values
+      }
     };
   } catch (err) {
     console.log(err);
