@@ -1,40 +1,22 @@
 {
-  "name": "custom-spain-map",
-  "version": "1.0.0",
-  "description": "Mapa vectorial de España interactivo creado a partir de un mapa SVG y la librería RaphaëlJs.",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
+  "name": "spain-map-react",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "node server",
-    "server": "nodemon server",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Dacuna97/custom-spain-map.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Dacuna97/custom-spain-map/issues"
-  },
-  "homepage": "https://github.com/Dacuna97/custom-spain-map#readme",
   "dependencies": {
-    "axios": "^0.21.1",
-    "bcryptjs": "^2.4.3",
-    "concurrently": "^6.2.0",
-    "config": "^3.3.6",
-    "express": "^4.17.1",
-    "express-validator": "^6.11.1",
-    "fs": "^0.0.1-security",
-    "googleapis": "^74.2.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.12",
-    "nodemon": "^2.0.7",
-    "readline": "^1.3.0",
-    "request": "^2.88.2"
+    "@south-paw/react-vector-maps": "^3.1.0",
+    "googleapis": "^39.2.0",
+    "next": "11.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "eslint": "7.30.0",
+    "eslint-config-next": "11.0.1"
   }
 }
