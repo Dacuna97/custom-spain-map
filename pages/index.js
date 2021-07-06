@@ -3,7 +3,7 @@ import { VectorMap } from '@south-paw/react-vector-maps';
 import { google } from 'googleapis';
 import keys from '../keys.json';
 import spainProvinces from '../public/spain-provinces';
-
+import spainMap from '../public/spain-map';
 import styles from '../styles/Home.module.css';
 
 export default function Home({ values }) {
@@ -17,7 +17,7 @@ export default function Home({ values }) {
     setSelected(name);
     setSelectedId(id);
   };
-
+  console.log('values', values);
   const headings = values && values.length > 0 ? values[0] : [];
   const helps = values && values.length > 1 ? values.filter((value) => value[3] === selected) : [];
   return (
@@ -43,9 +43,25 @@ export default function Home({ values }) {
                 <div className='status' style={{ backgroundColor: help[2] }}></div>
               ))}
             </div>
+            <div className='link-wrapper'>
+              <div className='heading link-heading'>{headings[4]}</div>
+              {helps.map((help) => {
+                if (help[4]) {
+                  return (
+                    <a className='link' target='_blank' href={help[4]}>
+                      +INFO
+                    </a>
+                  );
+                } else {
+                  return <div className='link' />;
+                }
+              })}
+            </div>
           </div>
         </div>
       )}
+      <VectorMap {...spainMap} layerProps={{ onClick }} checkedLayers={[selectedId]} />
+
       <VectorMap {...spainProvinces} layerProps={{ onClick }} checkedLayers={[selectedId]} />
     </div>
   );
