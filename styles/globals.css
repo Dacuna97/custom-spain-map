@@ -14,16 +14,52 @@ a {
 * {
   box-sizing: border-box;
 }
-
-svg {
+.maps-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  width: 70%;
+  height: 100%;
+}
+.spain-map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+.spain-map-provinces {
+  width: 50%;
+  height: 100%;
+}
+.spain-map-provinces svg {
   stroke: #6fc0a9;
   height: 100%;
-  margin-top: 50px;
-  margin-left: auto;
+  width: 100%;
+}
+.spain-image-selected {
+  filter: invert(77%) sepia(9%) saturate(1437%) hue-rotate(112deg) brightness(91%) contrast(85%);
+}
+.spain-image {
+  filter: invert(92%) sepia(27%) saturate(97%) hue-rotate(102deg) brightness(96%) contrast(93%);
+}
+.spain-image:hover {
+  filter: invert(77%) sepia(9%) saturate(1437%) hue-rotate(112deg) brightness(91%) contrast(85%);
+}
+.spain-map img {
+  width: 30%;
+  height: 15%;
+  cursor: pointer;
 }
 
-svg path {
+.spain-map-provinces svg path {
   fill: #ffffff;
+  cursor: pointer;
+  outline: none;
+}
+.spain-map svg path {
+  fill: #d6ebe3;
   cursor: pointer;
   outline: none;
 }

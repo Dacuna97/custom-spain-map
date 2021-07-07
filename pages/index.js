@@ -3,7 +3,7 @@ import { VectorMap } from '@south-paw/react-vector-maps';
 import { google } from 'googleapis';
 import keys from '../keys.json';
 import spainProvinces from '../public/spain-provinces';
-import spainMap from '../public/spain-map';
+
 import styles from '../styles/Home.module.css';
 
 export default function Home({ values }) {
@@ -17,6 +17,11 @@ export default function Home({ values }) {
     setSelected(name);
     setSelectedId(id);
   };
+
+  const onClickSpainOutline = () => {
+    setSelected('España');
+  };
+
   console.log('values', values);
   const headings = values && values.length > 0 ? values[0] : [];
   const helps = values && values.length > 1 ? values.filter((value) => value[3] === selected) : [];
@@ -44,7 +49,7 @@ export default function Home({ values }) {
               ))}
             </div>
             <div className='link-wrapper'>
-              <div className='heading link-heading'>{headings[4]}</div>
+              {/* <div className='heading link-heading'>{headings[4]}</div> */}
               {helps.map((help) => {
                 if (help[4]) {
                   return (
@@ -60,9 +65,23 @@ export default function Home({ values }) {
           </div>
         </div>
       )}
-      <VectorMap {...spainMap} layerProps={{ onClick }} checkedLayers={[selectedId]} />
-
-      <VectorMap {...spainProvinces} layerProps={{ onClick }} checkedLayers={[selectedId]} />
+      <div className='maps-wrapper'>
+        {/* <div className='spain-map'>
+          <img
+            className={`${selected === 'España' ? 'spain-image-selected' : 'spain-image'}`}
+            src='/spain-outline.png'
+            alt=''
+            onClick={onClickSpainOutline}
+          />
+        </div> */}
+        <div className='spain-map-provinces'>
+          <VectorMap
+            {...spainProvinces}
+            layerProps={{ onClick }}
+            checkedLayers={[selectedId && selected !== 'España' ? selectedId : null]}
+          />
+        </div>
+      </div>
     </div>
   );
 }
