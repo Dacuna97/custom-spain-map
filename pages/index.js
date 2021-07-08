@@ -11,18 +11,23 @@ export default function Home({ values }) {
   const [selectedId, setSelectedId] = useState(null);
 
   const onClick = ({ target }) => {
-    const id = target.attributes.id.value;
-    const name = target.attributes.name.value;
+    console.log('attributes', target.attributes['aria-label']);
+    let id = null;
+    let name = '';
+    if (target.attributes.id) {
+      id = target.attributes.id.value;
+    }
+    if (target.attributes.name) {
+      name = target.attributes.name.value;
+    }
 
+    if (target.attributes['aria-label']) {
+      name = target.attributes['aria-label'].value;
+    }
     setSelected(name);
     setSelectedId(id);
   };
 
-  const onClickSpainOutline = () => {
-    setSelected('España');
-  };
-
-  console.log('values', values);
   const headings = values && values.length > 0 ? values[0] : [];
   const helps = values && values.length > 1 ? values.filter((value) => value[3] === selected) : [];
   return (
@@ -74,8 +79,15 @@ export default function Home({ values }) {
             onClick={onClickSpainOutline}
           />
         </div> */}
-        <div className='spain-map-provinces'>
+        <div
+          className={`spain-map-provinces ${selected === 'España' ? 'spain-map-selected' : ''}`}
+          onClick={onClick}
+          id='spain'
+          name='España'
+        >
           <VectorMap
+            id='spain'
+            name='España'
             {...spainProvinces}
             layerProps={{ onClick }}
             checkedLayers={[selectedId && selected !== 'España' ? selectedId : null]}

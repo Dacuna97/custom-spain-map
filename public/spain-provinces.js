@@ -1,6 +1,6 @@
 const spainProvinces = {
   id: 'spain-provinces',
-  name: 'Spain Provinces',
+  name: 'España',
   viewBox: '0 0 418.45123 468.63733',
   layers: [
     //   {
