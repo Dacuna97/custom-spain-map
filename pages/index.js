@@ -120,6 +120,8 @@ async function gsrun(cl) {
 
 export async function getServerSideProps(ctx) {
   try {
+    console.log('process env client email', process.env.NEXT_PUBLIC_GSS_CLIENT_EMAIL);
+    console.log('process env private key', process.env.NEXT_PUBLIC_GSS_PRIVATE_KEY);
     const client = new google.auth.JWT(
       process.env.NEXT_PUBLIC_GSS_CLIENT_EMAIL,
       null,
