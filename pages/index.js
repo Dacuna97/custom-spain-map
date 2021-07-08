@@ -120,9 +120,12 @@ async function gsrun(cl) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const client = new google.auth.JWT(process.env.GSS_CLIENT_EMAIL, null, process.env.GSS_PRIVATE_KEY, [
-      'https://www.googleapis.com/auth/spreadsheets.readonly'
-    ]);
+    const client = new google.auth.JWT(
+      process.env.NEXT_PUBLIC_GSS_CLIENT_EMAIL,
+      null,
+      process.env.NEXT_PUBLIC_GSS_PRIVATE_KEY,
+      ['https://www.googleapis.com/auth/spreadsheets.readonly']
+    );
 
     const tokens = await client.authorize();
     console.log('Connected');
