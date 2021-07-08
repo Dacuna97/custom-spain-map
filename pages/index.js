@@ -1,7 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import { google } from 'googleapis';
-import keys from '../keys.json';
 import spainProvinces from '../public/spain-provinces';
 
 import styles from '../styles/Home.module.css';
@@ -121,7 +120,7 @@ async function gsrun(cl) {
 
 export async function getServerSideProps(ctx) {
   try {
-    const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
+    const client = new google.auth.JWT(process.env.GSS_CLIENT_EMAIL, null, process.env.GSS_PRIVATE_KEY, [
       'https://www.googleapis.com/auth/spreadsheets.readonly'
     ]);
 
