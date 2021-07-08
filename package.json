@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@south-paw/react-vector-maps": "^3.1.0",
+    "d3": "6.7.0",
     "googleapis": "^39.2.0",
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "topojson-client": "^3.1.0"
   },
   "devDependencies": {
     "eslint": "7.30.0",

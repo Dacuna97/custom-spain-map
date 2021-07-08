@@ -3,7 +3,7 @@ body {
   padding: 0;
   margin: 0;
   background: transparent;
-  font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -14,33 +14,45 @@ a {
 * {
   box-sizing: border-box;
 }
-
+.flex {
+  display: flex;
+}
+.country-wrapper {
+  padding: 100px;
+}
 svg {
-  stroke: #ffffff;
   height: 100%;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
 }
-
-svg path {
+path {
   fill: #13294b;
+  stroke: #8994a5;
+  stroke-width: 0.5;
   cursor: pointer;
-  outline: none;
 }
-
-svg path:hover {
-  fill: #339999;
+.line {
+  fill: transparent;
+  stroke: red;
+  width: 1px;
 }
-
-svg path:focus {
-  fill: #339999;
+.circle {
+  stroke: red;
+  fill: transparent;
 }
-
-svg path[aria-checked='true'] {
+.interpolate {
+  stroke: red;
+  fill: red;
+}
+.country-selected {
   fill: #47d7ac;
 }
-
-svg path[aria-current='true'] {
-  fill: #47d7ac;
+.country-list {
+  margin-right: 200px;
+}
+.country-list h1 {
+  cursor: pointer;
+  color: #13294b;
+}
+.country-list h1:hover {
+  color: #47d7ac;
 }
