@@ -128,7 +128,7 @@ export async function getServerSideProps(ctx) {
       process.env.NEXT_PUBLIC_GSS_PRIVATE_KEY,
       ['https://www.googleapis.com/auth/spreadsheets.readonly']
     );
-
+    console.log('client', client);
     const tokens = await client.authorize();
     console.log('Connected');
     const values = await gsrun(client);
@@ -138,6 +138,6 @@ export async function getServerSideProps(ctx) {
       }
     };
   } catch (err) {
-    console.log(err);
+    console.log('ERROR', err);
   }
 }
