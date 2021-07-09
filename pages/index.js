@@ -36,33 +36,35 @@ export default function Home({ values }) {
           <div className='province-info'>
             <div className='name-wrapper'>
               <div className='heading name-heading'>{headings[0]}</div>
-              {helps.map((help) => (
-                <div className='name'>{help[0]}</div>
+              {helps.map((help, index) => (
+                <div className='name' key={index}>
+                  {help[0]}
+                </div>
               ))}
             </div>
             <div className='typology-wrapper'>
               <div className='heading typology-heading'>{headings[1]}</div>
-              {helps.map((help) => (
-                <div className='typology' style={{ backgroundColor: help[1] }}></div>
+              {helps.map((help, index) => (
+                <div className='typology' key={index} style={{ backgroundColor: help[1] }}></div>
               ))}
             </div>
             <div className='status-wrapper'>
               <div className='heading status-heading'>{headings[2]}</div>
-              {helps.map((help) => (
-                <div className='status' style={{ backgroundColor: help[2] }}></div>
+              {helps.map((help, index) => (
+                <div className='status' key={index} style={{ backgroundColor: help[2] }}></div>
               ))}
             </div>
             <div className='link-wrapper'>
               {/* <div className='heading link-heading'>{headings[4]}</div> */}
-              {helps.map((help) => {
+              {helps.map((help, index) => {
                 if (help[4]) {
                   return (
-                    <a className='link' target='_blank' href={help[4]}>
+                    <a className='link' key={index} target='_blank' href={help[4]}>
                       +INFO
                     </a>
                   );
                 } else {
-                  return <div className='link' />;
+                  return <div key={index} className='link' />;
                 }
               })}
             </div>
