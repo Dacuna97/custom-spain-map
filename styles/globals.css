@@ -420,6 +420,7 @@ svg path[aria-current='true'] {
     margin-top: 50px;
     margin-left: 10px;
     margin-right: 10px;
+    width: 100%;
   }
   .maps-wrapper {
     width: 100%;
@@ -428,14 +429,18 @@ svg path[aria-current='true'] {
     min-height: 800px;
     height: auto;
     justify-content: center;
+    align-items: flex-start;
   }
   .spain-map-provinces {
     width: 100%;
-    height: 70%;
-    padding-left: 100px;
-    padding-right: 130px;
+    height: auto;
+    padding-left: 21%;
+    padding-top: 65px;
+    padding-bottom: 100px;
+    justify-content: center;
+    align-items: flex-start;
   }
   .spain-map-provinces svg {
-    width: 90%;
+    width: 100%;
   }
 }
