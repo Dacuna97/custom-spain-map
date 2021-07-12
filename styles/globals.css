@@ -33,10 +33,8 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 800px;
-  height: 800px;
   background-color: #d6ebe3;
-  padding: 100px 100px 160px 50px;
+  padding: 110px 160px 160px 140px;
   cursor: pointer;
   transition: all 0.5s ease;
   -webkit-clip-path: polygon(
@@ -286,7 +284,7 @@ a {
 .spain-map-provinces svg {
   stroke: #6fc0a9;
   height: 100%;
-  width: 55%;
+  width: 100%;
 }
 .spain-image-selected {
   filter: invert(77%) sepia(9%) saturate(1437%) hue-rotate(112deg) brightness(91%) contrast(85%);
@@ -336,8 +334,6 @@ svg path[aria-current='true'] {
   padding: 16px;
   border: 2px solid #6fc0a9;
   border-radius: 10px;
-  margin-left: 100px;
-  margin-right: 50px;
 }
 .province-info {
   display: flex;
@@ -426,7 +422,6 @@ svg path[aria-current='true'] {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    min-height: 800px;
     height: auto;
     justify-content: center;
     align-items: flex-start;
