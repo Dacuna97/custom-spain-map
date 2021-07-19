@@ -34,40 +34,36 @@ export default function Home({ values }) {
       {headings && headings.length > 0 && helps && helps.length > 0 && (
         <div className='province-info-wrapper'>
           <div className='province-info'>
-            <div className='name-wrapper'>
+            <div className='headings'>
               <div className='heading name-heading'>{headings[0]}</div>
-              {helps.map((help, index) => (
-                <div className='name' key={index}>
-                  {help[0]}
-                </div>
-              ))}
-            </div>
-            <div className='typology-wrapper'>
               <div className='heading typology-heading'>{headings[1]}</div>
-              {helps.map((help, index) => (
-                <div className='typology' key={index} style={{ backgroundColor: help[1] }}></div>
-              ))}
-            </div>
-            <div className='status-wrapper'>
               <div className='heading status-heading'>{headings[2]}</div>
-              {helps.map((help, index) => (
-                <div className='status' key={index} style={{ backgroundColor: help[2] }}></div>
-              ))}
             </div>
-            <div className='link-wrapper'>
-              {/* <div className='heading link-heading'>{headings[4]}</div> */}
-              {helps.map((help, index) => {
-                if (help[4]) {
-                  return (
+            {helps.map((help, index) => (
+              <div className='help-content-wrapper'>
+                <div className='name-wrapper'>
+                  <div className='name' key={index}>
+                    {help[0]}
+                  </div>
+                </div>
+                <div className='typology-wrapper'>
+                  <div className='typology' key={index} style={{ backgroundColor: help[1] }}></div>
+                </div>
+                <div className='status-wrapper'>
+                  <div className='status' key={index} style={{ backgroundColor: help[2] }}></div>
+                </div>
+                <div className='link-wrapper'>
+                  {/* <div className='heading link-heading'>{headings[4]}</div> */}
+                  {help[4] ? (
                     <a className='link' key={index} target='_blank' href={help[4]}>
                       +INFO
                     </a>
-                  );
-                } else {
-                  return <div key={index} className='link' />;
-                }
-              })}
-            </div>
+                  ) : (
+                    <div key={index} className='link' />
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}

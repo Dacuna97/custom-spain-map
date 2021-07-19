@@ -335,13 +335,19 @@ svg path[aria-current='true'] {
   border: 2px solid #6fc0a9;
   border-radius: 10px;
   max-height: 40vh;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 .province-info {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   align-self: center;
   margin-bottom: 15px;
+}
+.headings,
+.help-content-wrapper {
+  display: flex;
 }
 .heading-wrapper {
   display: flex;
@@ -355,29 +361,38 @@ svg path[aria-current='true'] {
   margin-bottom: 15px;
 }
 
-.name-wrapper {
+.name-wrapper,
+.name-heading {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: flex-start;
   width: 250px !important;
 }
 
-.typology-wrapper {
+.typology-wrapper,
+.typology-heading {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-right: 15px;
 }
+.typology-wrapper {
+  width: 57px;
+}
 .status-wrapper {
+  width: 42px;
+}
+.status-wrapper,
+.status-heading {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-right: 15px;
 }
 .link-wrapper {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .help-wrapper {
   display: flex;
@@ -386,7 +401,6 @@ svg path[aria-current='true'] {
 }
 .name {
   font-size: 12px;
-  height: 12px;
   color: #373737;
   font-weight: 400;
   margin-bottom: 10px;
@@ -396,7 +410,6 @@ svg path[aria-current='true'] {
   height: 12px;
   border-radius: 50%;
   margin-bottom: 10px;
-  margin-left: 15px;
 }
 .status {
   width: 12px;
@@ -440,5 +453,9 @@ svg path[aria-current='true'] {
   }
   .spain-map-provinces svg {
     width: 100%;
+  }
+  .name-wrapper,
+  .name-heading {
+    width: 130px !important;
   }
 }
