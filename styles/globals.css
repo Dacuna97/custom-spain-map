@@ -19,7 +19,7 @@ a {
   justify-content: space-between;
   align-items: center;
   margin-left: auto;
-  width: 65%;
+  width: 60%;
   height: 100%;
 }
 .spain-map {
@@ -336,7 +336,7 @@ svg path[aria-current='true'] {
   border-radius: 10px;
   max-height: 40vh;
   overflow-y: auto;
-  width: 35%;
+  width: 40%;
 }
 .province-info {
   display: flex;
