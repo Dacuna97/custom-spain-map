@@ -332,8 +332,7 @@ svg path[aria-current='true'] {
 .province-info-wrapper {
   z-index: 100;
   padding: 16px;
-  border: 2px solid #6fc0a9;
-  border-radius: 10px;
+  border: 1px solid #6fc0a9;
   max-height: 40vh;
   overflow-y: auto;
   width: 50%;
